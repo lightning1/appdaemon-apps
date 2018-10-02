@@ -1,0 +1,8 @@
+appdaemon:
+  app_dir: /etc/appdaemon/apps
+  threads: 10
+  plugins:
+    HASS:
+      type: hass
+      ha_url: http://127.0.0.1:8123
+      ha_key: !secret home_assistant_key

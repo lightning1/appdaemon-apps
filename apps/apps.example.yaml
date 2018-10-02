@@ -1,0 +1,22 @@
+Max AutoOff:
+  class: TelegramAutoOff
+  module: telegram_bot
+  instance_name: max_room
+  users: ["Max Mustermann"]
+  entities: [
+          "group.max_zimmer_lights",
+          "group.max_zimmer_inputs",
+  ]
+
+Global AutoOff:
+  class: TelegramAutoOff
+  module: telegram_bot
+  instance_name: global
+  users: ["Max Mustermann"]
+  entities: [
+          "group.common_room_lights",
+          "group.wc_inputs",
+          "group.floor_lights",
+          "group.max_zimmer_lights",
+          "group.max_zimmer_inputs",
+  ]
