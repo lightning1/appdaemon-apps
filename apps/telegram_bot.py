@@ -69,7 +69,7 @@ class TelegramAutoOff(hass.Hass):
       for user in self.args["users"]:
           for tracked_device in globals.users[user]["tracked_devices"]:
               if device == tracked_device:
-                  return user
+                  return globals.users[user]
       return None
 
 
