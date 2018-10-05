@@ -1,6 +1,6 @@
 Max AutoOff:
   class: TelegramAutoOff
-  module: telegram_bot
+  module: telegram_autooff
   instance_name: max_room
   users: ["Max Mustermann"]
   entities: [
@@ -10,13 +10,28 @@ Max AutoOff:
 
 Global AutoOff:
   class: TelegramAutoOff
-  module: telegram_bot
+  module: telegram_autooff
   instance_name: global
-  users: ["Max Mustermann"]
+  users: ["Max Mustermann", "Manuela Musterfrau"]
   entities: [
           "group.common_room_lights",
           "group.wc_inputs",
           "group.floor_lights",
-          "group.max_zimmer_lights",
-          "group.max_zimmer_inputs",
   ]
+
+kitchendisplay:
+  class: MqttDisplay
+  module: mqtt_display
+  mqtt_display_topic_file: "kitchen_pc/screen/file"
+  mqtt_display_topic_url: "kitchen_pc/screen/open"
+  switch_display: ["switch.kitchen_pc_power"]
+  slide_show_dir: "/mnt/nas/slideshows"
+  input_number_duration: "input_number.kitchen_display_duration"
+  dir_reload_timer: 5
+  dir_sensor_name: "sensor.kitchen_slideshow"
+  instance_name: "Kitchenscreen"
+
+telegram_master:
+  class: TelegramBot
+  module: telegram_bot
+  displays: ["kitchendisplay"]
